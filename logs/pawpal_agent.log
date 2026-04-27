@@ -1,0 +1,81 @@
+2026-04-26 18:04:14 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:04:14 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:04:14 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:04:14 | INFO     | build_index: indexed 16 section(s) from docs
+2026-04-26 18:04:14 | INFO     | retrieve: query 'walk duration large dog medication daily' | top result: 'Recommended Frequency for Common Pet Medications' (score=0.0540)
+2026-04-26 18:09:13 | INFO     | Agent starting for owner Alice
+2026-04-26 18:09:13 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:09:13 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:09:13 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:09:13 | INFO     | build_index: indexed 16 section(s) from C:\Users\tharu\projects\AI110\applied-ai-system-final\docs
+2026-04-26 18:09:13 | INFO     | retrieve: query 'Morning Walk Insulin Medication Feed Biscuit Brush Coat' | top result: 'Warning Signs That a Medical Task Is Being Under-Scheduled' (score=0.0193)
+2026-04-26 18:09:13 | WARNING  | validate_tasks: Task 'Morning Walk' for Biscuit is only 15 min — guidelines recommend at least 20 min for walks/exercise. Guideline reference: "| Size   | Weight Range    | Recommended Daily Walk Duration         | |--------|-----------------|-----------------------------------------| | Small  | Under 20 lbs    | 20–30 minutes (can be split i..."
+2026-04-26 18:09:13 | WARNING  | validate_tasks: Task 'Insulin Medication' for Biscuit appears to be a medication task but is set to 'medium' priority — medication tasks should always be HIGH priority.
+2026-04-26 18:09:13 | INFO     | Agent completed for owner Alice — scheduled: 4, skipped: 0, confidence: 1.00
+2026-04-26 18:20:12 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:20:12 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:20:12 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:20:12 | INFO     | build_index: indexed 16 section(s) from docs
+2026-04-26 18:31:51 | INFO     | Agent starting for owner Alice
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:31:51 | INFO     | build_index: indexed 16 section(s) from C:\Users\tharu\projects\AI110\applied-ai-system-final\docs
+2026-04-26 18:31:51 | INFO     | retrieve: query 'Morning Walk Feed Biscuit Insulin Medication Brush Coat' | top result: 'Warning Signs That a Medical Task Is Being Under-Scheduled' (score=0.0193)
+2026-04-26 18:31:51 | ERROR    | get_ai_suggestions: API call failed — No module named 'dotenv'
+2026-04-26 18:31:51 | INFO     | Agent completed for owner Alice — scheduled: 4, skipped: 0, confidence: 1.00, ai_suggestions: none
+2026-04-26 18:31:51 | INFO     | run_evaluation: [PASS] 'TC-01: full plan, medical included'  score=1.00
+2026-04-26 18:31:51 | INFO     | Agent starting for owner Bob
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:31:51 | INFO     | build_index: indexed 16 section(s) from C:\Users\tharu\projects\AI110\applied-ai-system-final\docs
+2026-04-26 18:31:51 | INFO     | retrieve: query 'Quick Walk Feed Dog Medication' | top result: 'Recommended Frequency for Common Pet Medications' (score=0.0458)
+2026-04-26 18:31:51 | WARNING  | validate_tasks: Task 'Quick Walk' for Biscuit is only 15 min — guidelines recommend at least 20 min for walks/exercise. Guideline reference: "| Size   | Weight Range    | Recommended Daily Walk Duration         | |--------|-----------------|-----------------------------------------| | Small  | Under 20 lbs    | 20–30 minutes (can be split i..."
+2026-04-26 18:31:51 | ERROR    | get_ai_suggestions: API call failed — No module named 'dotenv'
+2026-04-26 18:31:51 | INFO     | Agent completed for owner Bob — scheduled: 2, skipped: 1, confidence: 0.95, ai_suggestions: none
+2026-04-26 18:31:51 | INFO     | run_evaluation: [PASS] 'TC-02: tight budget, check fits_budget'  score=1.00
+2026-04-26 18:31:51 | INFO     | Agent starting for owner Alice
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:31:51 | INFO     | build_index: indexed 16 section(s) from C:\Users\tharu\projects\AI110\applied-ai-system-final\docs
+2026-04-26 18:31:51 | INFO     | retrieve: query 'Evening Walk Feed Dog' | top result: 'Recommended Frequency for Common Pet Medications' (score=0.0407)
+2026-04-26 18:31:51 | ERROR    | get_ai_suggestions: API call failed — No module named 'dotenv'
+2026-04-26 18:31:51 | INFO     | Agent completed for owner Alice — scheduled: 2, skipped: 0, confidence: 1.00, ai_suggestions: none
+2026-04-26 18:31:51 | INFO     | run_evaluation: [PASS] 'TC-03: no medical tasks (trivially passes medical check)'  score=1.00
+2026-04-26 18:31:51 | INFO     | Agent starting for owner Alice
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:31:51 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:31:51 | INFO     | build_index: indexed 16 section(s) from C:\Users\tharu\projects\AI110\applied-ai-system-final\docs
+2026-04-26 18:31:51 | INFO     | retrieve: query 'Evening Walk Feed Dog' | top result: 'Recommended Frequency for Common Pet Medications' (score=0.0407)
+2026-04-26 18:31:51 | ERROR    | get_ai_suggestions: API call failed — No module named 'dotenv'
+2026-04-26 18:31:51 | INFO     | Agent completed for owner Alice — scheduled: 2, skipped: 0, confidence: 1.00, ai_suggestions: none
+2026-04-26 18:31:51 | WARNING  | score_plan: unknown behaviour tag 'nonexistent_tag' — counted as failure
+2026-04-26 18:31:51 | INFO     | run_evaluation: [FAIL] 'TC-04: unknown behavior tag (should score 0)'  score=0.00
+2026-04-26 18:31:51 | INFO     | run_evaluation complete: 3/4 test case(s) passed (75% pass rate)
+2026-04-26 18:51:02 | INFO     | Agent starting for owner Jamie
+2026-04-26 18:51:02 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:51:02 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:51:02 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:51:02 | INFO     | build_index: indexed 16 section(s) from C:\Users\tharu\projects\AI110\applied-ai-system-final\docs
+2026-04-26 18:51:02 | INFO     | retrieve: query 'Morning Walk' | top result: 'Daily Walk Duration by Pet Size' (score=0.0370)
+2026-04-26 18:51:02 | ERROR    | get_ai_suggestions: API call failed — No module named 'dotenv'
+2026-04-26 18:51:02 | INFO     | Agent completed for owner Jamie — scheduled: 1, skipped: 0, confidence: 1.00, ai_suggestions: none
+2026-04-26 18:53:44 | INFO     | Agent starting for owner Jamie
+2026-04-26 18:53:44 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:53:44 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:53:44 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:53:44 | INFO     | build_index: indexed 16 section(s) from C:\Users\tharu\projects\AI110\applied-ai-system-final\docs
+2026-04-26 18:53:45 | INFO     | retrieve: query 'Morning Walk' | top result: 'Daily Walk Duration by Pet Size' (score=0.0370)
+2026-04-26 18:53:49 | ERROR    | get_ai_suggestions: API call failed — 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-04-26 18:53:49 | INFO     | Agent completed for owner Jamie — scheduled: 1, skipped: 0, confidence: 1.00, ai_suggestions: none
+2026-04-26 18:57:42 | INFO     | Agent starting for owner Jamie
+2026-04-26 18:57:42 | INFO     | load_documents: loaded 8 section(s) from breed_specific_care.md
+2026-04-26 18:57:42 | INFO     | load_documents: loaded 4 section(s) from medical_task_guidelines.md
+2026-04-26 18:57:42 | INFO     | load_documents: loaded 4 section(s) from pet_care_guidelines.md
+2026-04-26 18:57:42 | INFO     | build_index: indexed 16 section(s) from C:\Users\tharu\projects\AI110\applied-ai-system-final\docs
+2026-04-26 18:57:42 | INFO     | retrieve: query 'Morning Walk' | top result: 'Daily Walk Duration by Pet Size' (score=0.0370)
+2026-04-26 18:57:45 | ERROR    | get_ai_suggestions: API call failed — 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\nPlease retry in 14.970428866s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '14s'}]}}
+2026-04-26 18:57:45 | INFO     | Agent completed for owner Jamie — scheduled: 1, skipped: 0, confidence: 1.00, ai_suggestions: none

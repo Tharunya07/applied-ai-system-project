@@ -1,5 +1,6 @@
 import streamlit as st
 from pawpal_system import Pet, Owner, Task, Scheduler, Priority
+from agent.planner import run_agent
 
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
 
@@ -10,6 +11,8 @@ if "scheduler" not in st.session_state:
     st.session_state.scheduler = None
 if "tasks" not in st.session_state:
     st.session_state.tasks = []
+if "agent_result" not in st.session_state:
+    st.session_state.agent_result = None
 
 st.title("🐾 PawPal+")
 st.caption("A daily pet care scheduler for busy owners.")
@@ -165,34 +168,58 @@ elif not st.session_state.tasks:
     st.warning("Add at least one task in Section 2 before generating a plan.")
 else:
     if st.button("Generate Today's Plan"):
-        scheduler = st.session_state.scheduler
         owner = st.session_state.owner
 
-        # Conflict warnings
-        warnings = scheduler.validate()
-        for w in warnings:
-            st.warning(f"Conflict Detected: {w}")
+        with st.spinner("Running agentic planner..."):
+            result = run_agent(owner, st.session_state.tasks)
 
-        # Generate plan (runs regardless of warnings)
-        plan = scheduler.generate_plan()
-        all_due = [t for t in scheduler.task_list if t.is_due(__import__("datetime").date.today())]
-        skipped = [t for t in all_due if t not in plan]
+        st.session_state.agent_result = result
 
-        if not plan:
-            st.error("No tasks fit within the available time budget. Try reducing task durations or increasing available time.")
+        plan    = result["plan"]
+        skipped = result["skipped"]
+
+        # ── AI Suggestions ────────────────────────────────────────────
+        if result["ai_suggestions"]:
+            st.markdown("#### 💡 AI Suggestions")
+            st.info(result["ai_suggestions"])
+
+        # ── Validation Warnings ───────────────────────────────────────
+        if result["validation_warnings"]:
+            for w in result["validation_warnings"]:
+                st.warning(w)
+
+        # ── Confidence Score ──────────────────────────────────────────
+        confidence = result["confidence"]
+        col_conf, col_sched, col_skip = st.columns(3)
+        col_conf.metric("Plan Confidence", f"{confidence:.0%}")
+        col_sched.metric("Tasks Scheduled", len(plan))
+        col_skip.metric("Tasks Skipped", len(skipped))
+
+        if confidence < 0.7:
+            st.warning("Low confidence plan — review concerns below.")
         else:
-            if not warnings:
-                st.success("Plan generated with no conflicts.")
+            st.success("High confidence plan")
 
-            # Summary metrics
-            time_used = sum(t.duration for t in plan)
+        # ── Concerns ──────────────────────────────────────────────────
+        if result["concerns"]:
+            for c in result["concerns"]:
+                st.error(c)
+
+        # ── Plan tables ───────────────────────────────────────────────
+        if not plan:
+            st.error(
+                "No tasks fit within the available time budget. "
+                "Try reducing task durations or increasing available time."
+            )
+        else:
+            time_used   = sum(t.duration for t in plan)
             time_budget = owner.get_available_time()
+
             col1, col2, col3 = st.columns(3)
-            col1.metric("Tasks Scheduled", len(plan))
-            col2.metric("Time Used (min)", time_used)
+            col1.metric("Time Used (min)", time_used)
+            col2.metric("Time Budget (min)", time_budget)
             col3.metric("Time Remaining (min)", time_budget - time_used)
 
-            # Scheduled tasks table
             st.markdown("#### Scheduled Tasks")
             st.table(
                 [
@@ -207,7 +234,6 @@ else:
                 ]
             )
 
-            # Skipped tasks table
             if skipped:
                 st.markdown("#### Skipped Tasks")
                 st.table(
@@ -223,6 +249,19 @@ else:
                     ]
                 )
 
-            # Full reasoning
-            with st.expander("Plan reasoning"):
-                st.text(scheduler.explain_plan())
+        # ── Retrieved Guidelines ──────────────────────────────────────
+        with st.expander("📚 Guidelines Used"):
+            guidelines = result["retrieved_guidelines"]
+            if guidelines:
+                for g in guidelines:
+                    st.markdown(f"**{g['section_title']}**  `{g['filename']}`")
+                    preview = g["content"][:200].replace("\n", " ")
+                    st.caption(f"{preview}{'…' if len(g['content']) > 200 else ''}")
+                    st.divider()
+            else:
+                st.info("No guidelines were retrieved for this task list.")
+
+        # ── Agent Trace ───────────────────────────────────────────────
+        with st.expander("🔍 Agent Trace"):
+            for step in result["trace"]:
+                st.text(step)
