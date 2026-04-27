@@ -209,7 +209,7 @@ def get_ai_suggestions(
 
         client = genai.Client(api_key=api_key)
         response = client.models.generate_content(
-            model="gemini-1.5-flash-8b",
+            model="gemini-2.0-flash-lite",
             contents=prompt,
         )
 

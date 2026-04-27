@@ -1,4 +1,4 @@
-# Model Card — PawPal+ Applied AI System
+# Model Card - PawPal+ Applied AI System
 
 ## 1. Model Name and Purpose
 
@@ -60,7 +60,7 @@ A user could add fake medical tasks to inflate the confidence score. A future fi
 - 10 pytest tests covering priority ordering, recurrence logic, conflict detection, and budget overflow handling
 - Evaluator scores test cases against three behaviour tags: `medical_tasks_included`, `high_priority_first`, `fits_budget`
 - Pass threshold is 0.8; confidence averaged 1.0 on standard inputs with all tasks scheduled
-- Guardrails caught edge cases during normal use, not just adversarial testing — empty task lists and zero-duration tasks both occurred naturally
+- Guardrails caught edge cases during normal use, not just adversarial testing , empty task lists and zero-duration tasks both occurred naturally
 - Gemini API quota ran out faster than expected during iterative testing, which validated the decision to make the step entirely optional
 
 ---
